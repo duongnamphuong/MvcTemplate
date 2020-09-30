@@ -22,3 +22,7 @@ Will be added in near future (current environment on my PC):
 # Things to be cleaned up
 
 * _LayoutBootstrap3.cshtml: This file was originally _Layout.cshtml. The current _Layout.cshtml is on the way to use classess/CSS/... of new Bootstrap version. After I finish the content of _Layout.cshtml I will remove _LayoutBootstrap3.cshtml.
+
+# Implemented items
+
+* A simple Login template.
