@@ -2,9 +2,9 @@
 
 This is a project of MVC - Web API on .NET framework.
 
-I am integrating different modules to this project: ADO.NET (to use SQL Server database), Log4Net (for logging), Quartz (sche
+I am integrating different modules to this project: ADO.NET (to use SQL Server database), Log4Net (for logging), Quartz (for running scheduled tasks).
 
-Usage: you can use this as a templa
+Usage: you can use this as a template for other web application.
 
 # Environment
 
