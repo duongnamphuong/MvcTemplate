@@ -21,3 +21,5 @@ Will be added in near future:
 # Implemented items
 
 * A simple Login template.
+* Customized Authorize Attribute
+* JSON Web Token (JWT)
