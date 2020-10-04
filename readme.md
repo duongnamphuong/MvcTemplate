@@ -2,24 +2,27 @@
 
 This is a project of MVC - Web API on .NET framework.
 
-Usage: you can use this as a template for other web application.
+I am going to implement typical features of a Web Application:
+
+* Authentication: JWT
+* Database connecting: SQL Server - ADO.NET
+* Scheduling: Quartz
+* Writing logs: log4net
+
+You can use this as a template for other web application.
 
 # Environment
-
-Current:
 
 * Visual Studio 2017
 * .NET Framework 4.5.2
 
+# Implemented items
 
-Will be added in near future:
+* A simple Login template
+* A customized Authorize Attribute
+* JSON Web Token (JWT)
+
+# Future implementations
 
 * ADO.NET
 * Quartz (either in-memory or database)
-* Log4Net
-
-# Implemented items
-
-* A simple Login template.
-* Customized Authorize Attribute
-* JSON Web Token (JWT)
