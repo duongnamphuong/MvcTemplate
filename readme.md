@@ -21,6 +21,15 @@ You can use this as a template for other web application.
 * A simple Login template
 * A customized Authorize Attribute
 * JSON Web Token (JWT)
+* SCSS (Sassy CSS)
+
+# Steps to implement SCSS into an MVC project
+
+* Install-Package BundleTransformer.SassAndScss
+* Install-Package LibSassHost.Native.win-x64
+* Install-Package LibSassHost.Native.win-x86
+* Add **Site.scss** file somewhere. For example, place it in **Content** folder
+* In **BundleConfig.cs**, add **"~/Content/site.scss"** into the parameter list of **Include** method
 
 # Future implementations
 
