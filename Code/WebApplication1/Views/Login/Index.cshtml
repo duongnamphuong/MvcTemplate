@@ -1,7 +1,7 @@
 ﻿@{
     ViewBag.Title = "Login";
 }
-<form action="@Url.Action("Index","Login")" method="post">
+<form action="@Url.Action("Index", "Login")" method="post">
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="text" class="form-control" id="exampleInputEmail1" name="username" />
@@ -16,3 +16,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+<div>
+    <span>Not have an account? @Html.ActionLink("Click here", "Register", "Login") to register one.</span>
+</div>

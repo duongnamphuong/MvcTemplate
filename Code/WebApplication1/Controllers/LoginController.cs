@@ -41,5 +41,18 @@ namespace WebApplication1.Controllers
             HttpContext.ClearAuthorizationCookie();
             return RedirectToAction("Index");
         }
+
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        [HttpPost]
+        public ActionResult Register(FormCollection form)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
