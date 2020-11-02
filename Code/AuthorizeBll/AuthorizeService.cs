@@ -129,14 +129,12 @@ namespace AuthorizeBll
             return true;
         }
 
-        public static IDictionary<int, string> FetchHashTypes()
+        public static void FetchHashTypes()
         {
-            IDictionary<int, string> result;
             using (AuthorizeEntities ctx = new AuthorizeEntities())
             {
-                result = ctx.HashTypes.OrderBy(x => x.Id).ToDictionary(kvp => kvp.Id, kvp => kvp.Name);
+                Settings.InitSetting.Instance.HashTypes = ctx.HashTypes.OrderBy(x => x.Id).ToDictionary(kvp => kvp.Id, kvp => kvp.Name);
             }
-            return result;
         }
     }
 }

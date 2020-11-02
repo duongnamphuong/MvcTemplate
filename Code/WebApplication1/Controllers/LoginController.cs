@@ -67,7 +67,7 @@ namespace WebApplication1.Controllers
 
         private void ViewBagRegister()
         {
-            ViewBag.HashTypeDict = AuthorizeService.FetchHashTypes();
+            ViewBag.HashTypeDict = Settings.InitSetting.Instance.HashTypes;
         }
     }
 }
