@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JwtGenerate", "JwtGenerate\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizeDal", "AuthorizeDal\AuthorizeDal.csproj", "{6E00C460-980E-4FF8-86F6-92A3E1B6FF18}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enums", "Enums\Enums.csproj", "{B4077DDA-690A-40E7-9A00-992031350FC2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6E00C460-980E-4FF8-86F6-92A3E1B6FF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E00C460-980E-4FF8-86F6-92A3E1B6FF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E00C460-980E-4FF8-86F6-92A3E1B6FF18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4077DDA-690A-40E7-9A00-992031350FC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4077DDA-690A-40E7-9A00-992031350FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4077DDA-690A-40E7-9A00-992031350FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4077DDA-690A-40E7-9A00-992031350FC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

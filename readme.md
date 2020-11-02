@@ -26,6 +26,7 @@ You can use this as a template for other web application.
 * A customized Authorize Attribute
 * JSON Web Token (JWT)
 * SCSS (Sassy CSS)
+* ADO.NET
 
 # Build CSS from SCSS
 
@@ -38,7 +39,6 @@ To make sure the built files are not changed, please make sure you use the same 
 
 # Future implementations
 
-* ADO.NET
 * Quartz (either in-memory or database)
 * Highcharts
 * Singleton
