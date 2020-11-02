@@ -11,7 +11,7 @@
           </Key>
           <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Uname" Type="nvarchar" MaxLength="255" Nullable="false" />
-          <Property Name="HashSaltBase64" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="HashSaltBase64" Type="nvarchar" MaxLength="255" />
           <Property Name="HashTypeId" Type="int" Nullable="false" />
           <Property Name="PasswordHashBase64" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IsTwoFactor" Type="bit" Nullable="false" />
@@ -82,7 +82,7 @@
           </Key>
           <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Uname" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="HashSaltBase64" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HashSaltBase64" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <Property Name="HashTypeId" Type="Int32" Nullable="false" />
           <Property Name="PasswordHashBase64" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsTwoFactor" Type="Boolean" Nullable="false" />

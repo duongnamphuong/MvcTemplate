@@ -46,6 +46,7 @@ namespace WebApplication1.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            ViewBagRegister();
             return View();
         }
 
@@ -53,14 +54,20 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Register(FormCollection form)
         {
-            if (AuthorizeService.Register(form["username"], form["password"]))
+            if (AuthorizeService.Register(form["username"], form["password"], int.Parse(form["hashtype"])))
             {
                 return RedirectToAction("Index", "Home");
             }
             else
             {
+                ViewBagRegister();
                 return View();
             }
+        }
+
+        private void ViewBagRegister()
+        {
+            ViewBag.HashTypeDict = AuthorizeService.FetchHashTypes();
         }
     }
 }
