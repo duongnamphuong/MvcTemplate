@@ -54,7 +54,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Register(FormCollection form)
         {
-            if (AuthorizeService.Register(form["username"], form["password"], int.Parse(form["hashtype"])))
+            if (AuthorizeService.RegisterUser(form["username"], form["password"], int.Parse(form["hashtype"])))
             {
                 return RedirectToAction("Index", "Home");
             }

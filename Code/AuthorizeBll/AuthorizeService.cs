@@ -9,7 +9,7 @@ namespace AuthorizeBll
 {
     public static class AuthorizeService
     {
-        public static bool Register(string username, string rawPassword, int hashType)
+        public static bool RegisterUser(string username, string rawPassword, int hashType)
         {
             try
             {
