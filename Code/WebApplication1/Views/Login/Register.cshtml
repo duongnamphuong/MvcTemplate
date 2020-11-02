@@ -2,6 +2,7 @@
     ViewBag.Title = "Register";
     IDictionary<int, string> dict = (IDictionary<int, string>)ViewBag.HashTypeDict;
 }
+<h1>@ViewBag.Title</h1>
 <form action="@Url.Action("Register", "Login")" method="post">
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -14,7 +15,7 @@
     <div class="form-group">
         <label for="exampleInputHashType1">Password Hash type</label>
         <select class="form-control" id="exampleInputHashType1" name="hashtype">
-            <option value="-1" selected="selected">Select</option>
+            <option value="-1" selected="selected">[Select hash type]</option>
             @for (int i = 0; i < dict.Count(); i++)
             {
                 <option value="@dict.Keys.ToList()[i]">@dict[dict.Keys.ToList()[i]]</option>
@@ -24,5 +25,5 @@
     <button type="submit" class="btn btn-primary">Register</button>
 </form>
 <div>
-    @Html.ActionLink("Return to Login page", "Logout", "Login")
+    @Html.ActionLink("Return to Login page", "Index", "Login")
 </div>
