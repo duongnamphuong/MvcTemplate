@@ -1,4 +1,7 @@
-﻿<form action="@Url.Action("Index","Login")" method="post">
+﻿@{
+    ViewBag.Title = "Login";
+}
+<form action="@Url.Action("Index","Login")" method="post">
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="text" class="form-control" id="exampleInputEmail1" name="username" />
@@ -9,7 +12,7 @@
     </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <label class="form-check-label" for="exampleCheck1">Check me out <span class="c-notes">(not implemented yet)</span></label>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

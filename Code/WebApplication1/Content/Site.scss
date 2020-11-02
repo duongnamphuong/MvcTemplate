@@ -1,4 +1,5 @@
 ﻿$custom-color-1: #c6538c;
+$notes-color: #ff0000;
 
 body {
     padding-top: 50px;
@@ -12,4 +13,8 @@ body {
 
 .c-brown {
     color: $custom-color-1;
+}
+
+.c-notes {
+    color: $notes-color;
 }
