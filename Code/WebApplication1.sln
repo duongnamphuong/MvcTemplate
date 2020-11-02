@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizeDal", "AuthorizeDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Enums", "Enums\Enums.csproj", "{B4077DDA-690A-40E7-9A00-992031350FC2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizeBll", "AuthorizeBll\AuthorizeBll.csproj", "{D51ACCC4-F190-485A-94A1-F40B5B928053}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B4077DDA-690A-40E7-9A00-992031350FC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4077DDA-690A-40E7-9A00-992031350FC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4077DDA-690A-40E7-9A00-992031350FC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D51ACCC4-F190-485A-94A1-F40B5B928053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D51ACCC4-F190-485A-94A1-F40B5B928053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D51ACCC4-F190-485A-94A1-F40B5B928053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D51ACCC4-F190-485A-94A1-F40B5B928053}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

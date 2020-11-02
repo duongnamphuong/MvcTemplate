@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AuthorizeBll;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -52,7 +53,14 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Register(FormCollection form)
         {
-            throw new NotImplementedException();
+            if (AuthorizeService.Register(form["username"], form["password"]))
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }
