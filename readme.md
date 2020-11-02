@@ -17,6 +17,8 @@ You can use this as a template for other web application.
 * Visual Studio 2017
 * .NET Framework 4.5.2
 * My preferred line break style: Windows-style (\r\n).
+* SQL Server 2017: 14.0.2027.
+* SQL Server Management Studio (SSMS) v17.9
 
 # Implemented items
 
