@@ -1,6 +1,7 @@
 ﻿using AuthorizeBll;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -12,6 +13,8 @@ namespace WebApplication1
         {
             Settings.InitSetting.Instance.InitHashTypes(AuthorizeService.FetchHashTypes());
             Settings.InitSetting.Instance.InitMaxNumberOfBytesInSalt(255);
+            Settings.InitSetting.Instance.InitCultureCookieName(ConfigurationManager.AppSettings["CultureCookieName"]);
+            Settings.InitSetting.Instance.InitCookieLifeSpan(new TimeSpan(1, 0, 0));
         }
     }
 }

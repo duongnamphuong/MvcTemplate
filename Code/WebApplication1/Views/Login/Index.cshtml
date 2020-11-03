@@ -1,22 +1,22 @@
 ﻿@{
-    ViewBag.Title = "Login";
+    ViewBag.Title = Resources.Resource.Login;
 }
 <h1>@ViewBag.Title</h1>
 <form action="@Url.Action("Index", "Login")" method="post">
     <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+        <label for="exampleInputEmail1">@Resources.Resource.Email_Address</label>
         <input type="text" class="form-control" id="exampleInputEmail1" name="username" />
     </div>
     <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label for="exampleInputPassword1">@Resources.Resource.Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" name="password">
     </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check">
-        <label class="form-check-label" for="exampleCheck1">Check me out <span class="c-notes">(not implemented yet)</span></label>
+        <label class="form-check-label" for="exampleCheck1">@Resources.Resource.Remember_me<span class="c-notes">@Resources.Resource.Not_yet_implemented</span></label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">@Resources.Resource.Login</button>
 </form>
 <div>
-    <span>Not have an account? @Html.ActionLink("Click here", "Register", "Login") to register one.</span>
+    <span>@Resources.Resource.No_account_part_1@Html.ActionLink(Resources.Resource.No_account_part_2, "Register", "Login")@Resources.Resource.No_account_part_3</span>
 </div>

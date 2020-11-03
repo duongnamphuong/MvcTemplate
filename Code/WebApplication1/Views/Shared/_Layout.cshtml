@@ -9,6 +9,7 @@
 </head>
 <body>
     <div class="container body-content">
+        @{ Html.RenderPartial("Header"); }
         @RenderBody()
     </div>
     @Scripts.Render("~/bundles/jquery")

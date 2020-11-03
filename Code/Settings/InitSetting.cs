@@ -37,5 +37,15 @@ namespace Settings
         {
             MaxNumberOfBytesInSalt = (int)(3 * maxLengthOfHashSaltBase64 / 4 - 1.75);
         }
+        public string CultureCookieName { get; private set; }
+        public void InitCultureCookieName(string CultureCookieName)
+        {
+            this.CultureCookieName = CultureCookieName;
+        }
+        public TimeSpan CookieLifeSpan { get; private set; }
+        public void InitCookieLifeSpan(TimeSpan CookieLifeSpan)
+        {
+            this.CookieLifeSpan = CookieLifeSpan;
+        }
     }
 }

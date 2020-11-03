@@ -1,0 +1,20 @@
+﻿@{
+    var uk = new RouteValueDictionary(Url.RequestContext.RouteData.Values);
+    var jp = new RouteValueDictionary(Url.RequestContext.RouteData.Values);
+    uk.Add(Settings.InitSetting.Instance.CultureCookieName, "en-US");
+    jp.Add(Settings.InitSetting.Instance.CultureCookieName, "ja-JP");
+}
+<div class="container">
+    <div class="row">
+        <div class="col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1">
+            <a href="@Url.RouteUrl(uk)">
+                <img alt="uk" src="@Url.Content("~/Content/country-flags/united-kingdom.svg")" />
+            </a>
+        </div>
+        <div class="col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1">
+            <a href="@Url.RouteUrl(jp)">
+                <img alt="jp" src="@Url.Content("~/Content/country-flags/japan.svg")" />
+            </a>
+        </div>
+    </div>
+</div>

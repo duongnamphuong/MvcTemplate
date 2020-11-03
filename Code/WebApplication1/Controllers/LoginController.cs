@@ -10,7 +10,7 @@ using WebApplication1.Authentication;
 namespace WebApplication1.Controllers
 {
     [CustomAuthorize]
-    public class LoginController : Controller
+    public class LoginController : BaseController
     {
         [AllowAnonymous]
         // GET: Login

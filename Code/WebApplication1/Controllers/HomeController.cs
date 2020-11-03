@@ -9,7 +9,7 @@ using WebApplication1.Authentication;
 namespace WebApplication1.Controllers
 {
     [CustomAuthorize]
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
