@@ -24,6 +24,6 @@ Database-first.
 
 * Firstly, you change the schema of the database.
 
-* After that, you "update" the "Model" in the project.
+* After that, return to the Project solution (*AuthorizeDal* project), then "update" the "Model" (*AuthorizeEdm.edmx* file) in the project.
 
 * Finally, export the database to script file, overwriting the current file.
