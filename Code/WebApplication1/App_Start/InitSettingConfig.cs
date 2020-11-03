@@ -10,7 +10,8 @@ namespace WebApplication1
     {
         public static void RegisterInitSettings()
         {
-            AuthorizeService.FetchHashTypes();
+            Settings.InitSetting.Instance.InitHashTypes(AuthorizeService.FetchHashTypes());
+            Settings.InitSetting.Instance.InitMaxNumberOfBytesInSalt(255);
         }
     }
 }

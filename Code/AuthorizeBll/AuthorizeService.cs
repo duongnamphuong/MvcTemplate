@@ -1,7 +1,9 @@
 ﻿using AuthorizeDal;
+using LogUtil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,13 +11,19 @@ namespace AuthorizeBll
 {
     public static class AuthorizeService
     {
+        /// <summary>
+        /// Register an account. Returns true if succeed, otherwise return false and write logs.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="rawPassword"></param>
+        /// <param name="hashType"></param>
+        /// <returns></returns>
         public static bool RegisterUser(string username, string rawPassword, int hashType)
         {
             try
             {
                 string hashSaltBase64 = null;
                 string passwordHashBase64 = null;
-                Account acc = null;
                 byte[] saltBytes;
                 System.Security.Cryptography.HMAC hmac;
                 switch (hashType)
@@ -63,51 +71,51 @@ namespace AuthorizeBll
                         }
                         break;
                     case (int)Enums.HMAC.HMACMD5:
-                        saltBytes = new byte[189];
+                        saltBytes = new byte[Settings.InitSetting.Instance.MaxNumberOfBytesInSalt];
                         new Random().NextBytes(saltBytes);
                         hashSaltBase64 = Convert.ToBase64String(saltBytes);
                         hmac = new System.Security.Cryptography.HMACMD5(saltBytes);
                         passwordHashBase64 = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(rawPassword)));
                         break;
                     case (int)Enums.HMAC.HMACRIPEMD160:
-                        saltBytes = new byte[189];
+                        saltBytes = new byte[Settings.InitSetting.Instance.MaxNumberOfBytesInSalt];
                         new Random().NextBytes(saltBytes);
                         hashSaltBase64 = Convert.ToBase64String(saltBytes);
                         hmac = new System.Security.Cryptography.HMACRIPEMD160(saltBytes);
                         passwordHashBase64 = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(rawPassword)));
                         break;
                     case (int)Enums.HMAC.HMACSHA1:
-                        saltBytes = new byte[189];
+                        saltBytes = new byte[Settings.InitSetting.Instance.MaxNumberOfBytesInSalt];
                         new Random().NextBytes(saltBytes);
                         hashSaltBase64 = Convert.ToBase64String(saltBytes);
                         hmac = new System.Security.Cryptography.HMACSHA1(saltBytes);
                         passwordHashBase64 = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(rawPassword)));
                         break;
                     case (int)Enums.HMAC.HMACSHA256:
-                        saltBytes = new byte[189];
+                        saltBytes = new byte[Settings.InitSetting.Instance.MaxNumberOfBytesInSalt];
                         new Random().NextBytes(saltBytes);
                         hashSaltBase64 = Convert.ToBase64String(saltBytes);
                         hmac = new System.Security.Cryptography.HMACSHA256(saltBytes);
                         passwordHashBase64 = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(rawPassword)));
                         break;
                     case (int)Enums.HMAC.HMACSHA384:
-                        saltBytes = new byte[189];
+                        saltBytes = new byte[Settings.InitSetting.Instance.MaxNumberOfBytesInSalt];
                         new Random().NextBytes(saltBytes);
                         hashSaltBase64 = Convert.ToBase64String(saltBytes);
                         hmac = new System.Security.Cryptography.HMACSHA384(saltBytes);
                         passwordHashBase64 = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(rawPassword)));
                         break;
                     case (int)Enums.HMAC.HMACSHA512:
-                        saltBytes = new byte[189];
+                        saltBytes = new byte[Settings.InitSetting.Instance.MaxNumberOfBytesInSalt];
                         new Random().NextBytes(saltBytes);
                         hashSaltBase64 = Convert.ToBase64String(saltBytes);
                         hmac = new System.Security.Cryptography.HMACSHA512(saltBytes);
                         passwordHashBase64 = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(rawPassword)));
                         break;
                     default:
-                        throw new NotImplementedException();
+                        throw new NotImplementedException("Unspecified hash type.");
                 }
-                acc = new Account()
+                var acc = new Account()
                 {
                     Uname = username,
                     HashSaltBase64 = hashSaltBase64,
@@ -122,18 +130,27 @@ namespace AuthorizeBll
                     ctx.SaveChanges();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Cannot register user", ex);
                 return false;
             }
             return true;
         }
 
-        public static void FetchHashTypes()
+        public static IDictionary<int, string> FetchHashTypes()
         {
-            using (AuthorizeEntities ctx = new AuthorizeEntities())
+            try
             {
-                Settings.InitSetting.Instance.HashTypes = ctx.HashTypes.OrderBy(x => x.Id).ToDictionary(kvp => kvp.Id, kvp => kvp.Name);
+                using (AuthorizeEntities ctx = new AuthorizeEntities())
+                {
+                    return ctx.HashTypes.OrderBy(x => x.Id).ToDictionary(kvp => kvp.Id, kvp => kvp.Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Cannot fetch hash types", ex);
+                return null;
             }
         }
     }

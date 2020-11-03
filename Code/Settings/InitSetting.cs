@@ -27,6 +27,15 @@ namespace Settings
                 return instance;
             }
         }
-        public IDictionary<int, string> HashTypes { get; set; }
+        public IDictionary<int, string> HashTypes { get; private set; }
+        public void InitHashTypes(IDictionary<int, string> HashTypes)
+        {
+            this.HashTypes = HashTypes;
+        }
+        public int MaxNumberOfBytesInSalt { get; private set; }
+        public void InitMaxNumberOfBytesInSalt(int maxLengthOfHashSaltBase64)
+        {
+            MaxNumberOfBytesInSalt = (int)(3 * maxLengthOfHashSaltBase64 / 4 - 1.75);
+        }
     }
 }
