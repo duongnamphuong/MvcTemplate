@@ -28,18 +28,18 @@ You can use this as a template for other web application.
 * SCSS (Sassy CSS)
 * ADO.NET
 * Storing passwords in hashes. Current supported hash types:
- * MD5
- * RIPEMD160
- * SHA1
- * SHA256
- * SHA384
- * SHA512
- * HMACMD5
- * HMACRIPEMD160
- * HMACSHA1
- * HMACSHA256
- * HMACSHA384
- * HMACSHA512
+  * MD5
+  * RIPEMD160
+  * SHA1
+  * SHA256
+  * SHA384
+  * SHA512
+  * HMACMD5
+  * HMACRIPEMD160
+  * HMACSHA1
+  * HMACSHA256
+  * HMACSHA384
+  * HMACSHA512
 
 * Register account with your preferred password hash type
 * Fetching setting from the database once each time the web app starts and store those setting in a singleton class. [What is singleton pattern?](https://en.wikipedia.org/wiki/Singleton_pattern)
