@@ -2,9 +2,26 @@
 $notes-color: #ff0000;
 
 .c-brown {
-    color: $custom-color-1;
+  color: $custom-color-1;
 }
 
 .c-notes {
-    color: $notes-color;
+  color: $notes-color;
+}
+
+$flag-border-thick: 1px;
+$flag-border-style: solid;
+$flag-border-color: #808080;
+$flag-max-width: 50px;
+
+.c_flag {
+  border: $flag-border-thick $flag-border-style $flag-border-color;
+  max-width: $flag-max-width;
+}
+
+nav {
+  .c_dropdown {
+    min-width: inherit;
+    float: left !important;
+  }
 }

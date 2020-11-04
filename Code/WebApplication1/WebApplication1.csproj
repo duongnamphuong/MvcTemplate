@@ -216,8 +216,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\country-flags\japan.svg" />
-    <Content Include="Content\country-flags\united-kingdom.svg" />
+    <Content Include="Content\country-flags\japan-flag-xs.png" />
+    <Content Include="Content\country-flags\united-kingdom-flag-xs.png" />
     <Content Include="Content\country-flags\readme.md" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

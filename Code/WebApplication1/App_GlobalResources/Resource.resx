@@ -141,4 +141,13 @@
   <data name="Remember_me" xml:space="preserve">
     <value>Remember me　</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
 </root>

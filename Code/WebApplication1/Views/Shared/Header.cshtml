@@ -1,20 +1,37 @@
-﻿@{
+﻿@using WebApplication1.Authentication;
+@{
     var uk = new RouteValueDictionary(Url.RequestContext.RouteData.Values);
     var jp = new RouteValueDictionary(Url.RequestContext.RouteData.Values);
     uk.Add(Settings.InitSetting.Instance.CultureCookieName, "en-US");
     jp.Add(Settings.InitSetting.Instance.CultureCookieName, "ja-JP");
+    bool isAuthorized = AuthUtility.IsAuthorized(ViewContext.Controller.ControllerContext.HttpContext.GetAuthToken());
 }
-<div class="container">
-    <div class="row">
-        <div class="col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1">
-            <a href="@Url.RouteUrl(uk)">
-                <img alt="uk" src="@Url.Content("~/Content/country-flags/united-kingdom.svg")" />
-            </a>
-        </div>
-        <div class="col-4 col-sm-4 col-md-2 col-lg-1 col-xl-1">
-            <a href="@Url.RouteUrl(jp)">
-                <img alt="jp" src="@Url.Content("~/Content/country-flags/japan.svg")" />
-            </a>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            @if (isAuthorized)
+            {
+                <li class="nav-item active">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">@Resources.Resource.Home</a>
+                </li>
+            }
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @Resources.Resource.Language
+                </a>
+                <div class="c_dropdown dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="@Url.RouteUrl(uk)">
+                        <img class="c_flag" alt="uk" src="@Url.Content("~/Content/country-flags/united-kingdom-flag-xs.png")" />
+                    </a>
+                    <a class="dropdown-item" href="@Url.RouteUrl(jp)">
+                        <img class="c_flag" alt="jp" src="@Url.Content("~/Content/country-flags/japan-flag-xs.png")" />
+                    </a>
+                </div>
+            </li>
+        </ul>
     </div>
-</div>
+</nav>

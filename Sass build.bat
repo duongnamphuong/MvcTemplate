@@ -1,1 +1,1 @@
-sass Code\WebApplication1\Content\Site.scss Code\WebApplication1\Content\Site.css
+sass --watch Code\WebApplication1\Content\Site.scss Code\WebApplication1\Content\Site.css

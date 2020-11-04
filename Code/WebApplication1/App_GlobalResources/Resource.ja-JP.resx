@@ -141,4 +141,13 @@
   <data name="Remember_me" xml:space="preserve">
     <value>ユーザを記憶します</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>言語</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>登録</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>ホーム</value>
+  </data>
 </root>

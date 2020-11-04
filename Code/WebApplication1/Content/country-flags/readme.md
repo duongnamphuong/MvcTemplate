@@ -1,1 +1,1 @@
-These country flags were downloaded from [https://www.flaticon.com/packs/rectangular-country-simple-flags](https://www.flaticon.com/packs/rectangular-country-simple-flags).
+These country flags were downloaded from [https://www.countryflags.com/en/](https://www.countryflags.com/en/).
