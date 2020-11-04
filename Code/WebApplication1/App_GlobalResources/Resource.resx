@@ -150,4 +150,22 @@
   <data name="Home" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>Hello </value>
+  </data>
+  <data name="Company_name" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="Return_to_login_page" xml:space="preserve">
+    <value>Return to login page</value>
+  </data>
+  <data name="Password_hash_type" xml:space="preserve">
+    <value>Password Hash Type</value>
+  </data>
+  <data name="Select_hash_type" xml:space="preserve">
+    <value>[Select hash type]</value>
+  </data>
 </root>

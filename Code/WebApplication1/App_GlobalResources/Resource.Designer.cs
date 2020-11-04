@@ -61,11 +61,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Company Name.
+        /// </summary>
+        internal static string Company_name {
+            get {
+                return ResourceManager.GetString("Company_name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email Address.
         /// </summary>
         internal static string Email_Address {
             get {
                 return ResourceManager.GetString("Email_Address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hello .
+        /// </summary>
+        internal static string Hello {
+            get {
+                return ResourceManager.GetString("Hello", resourceCulture);
             }
         }
         
@@ -93,6 +111,15 @@ namespace Resources {
         internal static string Login {
             get {
                 return ResourceManager.GetString("Login", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        internal static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
             }
         }
         
@@ -142,6 +169,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Password Hash Type.
+        /// </summary>
+        internal static string Password_hash_type {
+            get {
+                return ResourceManager.GetString("Password_hash_type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         internal static string Register {
@@ -156,6 +192,24 @@ namespace Resources {
         internal static string Remember_me {
             get {
                 return ResourceManager.GetString("Remember_me", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Return to login page.
+        /// </summary>
+        internal static string Return_to_login_page {
+            get {
+                return ResourceManager.GetString("Return_to_login_page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to [Select hash type].
+        /// </summary>
+        internal static string Select_hash_type {
+            get {
+                return ResourceManager.GetString("Select_hash_type", resourceCulture);
             }
         }
     }

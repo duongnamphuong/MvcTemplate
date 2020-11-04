@@ -15,7 +15,9 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check">
         <label class="form-check-label" for="exampleCheck1">@Resources.Resource.Remember_me<span class="c-notes">@Resources.Resource.Not_yet_implemented</span></label>
     </div>
-    <button type="submit" class="btn btn-primary">@Resources.Resource.Login</button>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">@Resources.Resource.Login</button>
+    </div>
 </form>
 <div>
     <span>@Resources.Resource.No_account_part_1@Html.ActionLink(Resources.Resource.No_account_part_2, "Register", "Login")@Resources.Resource.No_account_part_3</span>

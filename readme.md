@@ -43,11 +43,13 @@ You can use this as a template for other web application.
 
 * Register account with your preferred password hash type
 * Fetching setting from the database once each time the web app starts and store those setting in a singleton class. [What is singleton pattern?](https://en.wikipedia.org/wiki/Singleton_pattern)
+* Multiple language with App_GlobalResources.
 
 # Build CSS from SCSS
 
 * Download **Dart Sass**: [https://github.com/sass/dart-sass/releases](https://github.com/sass/dart-sass/releases) and extract it somewhere. You will have **dart-sass** folder after that. Add the directory of dart-sass (i.e: **D:&#92;dart-sass&#92;**&#41; into *PATH* environment parameter. At the time I wrote this readme, I used the version **1.27.0** of Dart Sass.
-* Build CSS with **sass** command. For example, **sass Site.scss Site.css** command will build **Site.css** and **Site.css.map** from **Site.scss**. For easy use in this repo, I created a batch file **Sass build.bat** at the root directory. If you are about to change CSS, please do it in SCSS file, then run the **Sass build.bat** file.
+* Build CSS with **sass** command. For example, **sass Site.scss Site.css** command will build **Site.css** and **Site.css.map** from **Site.scss**. For easy use in this repo, I created a batch file **Sass build.bat** at the root directory.
+* The command in that batch file has a **--watch** parameter. Therefore, the console will continuously watch the source file and compiles each time it detects any change. You only need to run the batch file once and keep the console open during your work with the solution.
 
 There is a rule telling that we should not commit files that were built from source. However, we still have to commit **.scss**, **.css**, and **.css.map** files even though **.css**, and **.css.map** were generated from **.scss** because the actual file that the browser uses is **.css** file.
 

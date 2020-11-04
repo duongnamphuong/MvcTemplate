@@ -150,4 +150,22 @@
   <data name="Home" xml:space="preserve">
     <value>ホーム</value>
   </data>
+  <data name="Logout" xml:space="preserve">
+    <value>ログアウト</value>
+  </data>
+  <data name="Hello" xml:space="preserve">
+    <value>こんにちは、</value>
+  </data>
+  <data name="Company_name" xml:space="preserve">
+    <value>会社名</value>
+  </data>
+  <data name="Return_to_login_page" xml:space="preserve">
+    <value>ログインページに戻リンス</value>
+  </data>
+  <data name="Password_hash_type" xml:space="preserve">
+    <value>パスワードのハッシュ関数</value>
+  </data>
+  <data name="Select_hash_type" xml:space="preserve">
+    <value>【ハッシュ関数選択】</value>
+  </data>
 </root>
