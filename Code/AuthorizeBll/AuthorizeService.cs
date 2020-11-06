@@ -153,5 +153,99 @@ namespace AuthorizeBll
                 return null;
             }
         }
+
+        public static bool Login(string username, string password)
+        {
+            bool isOk = false;
+            byte[] saltBytes;
+            System.Security.Cryptography.HMAC hmac;
+            try
+            {
+                using (AuthorizeEntities ctx = new AuthorizeEntities())
+                {
+                    var acc = ctx.Accounts.Where(x => x.Uname == username).FirstOrDefault();
+                    if (acc != null)
+                    {
+                        switch (acc.HashTypeId)
+                        {
+                            case (int)Enums.HMAC.MD5:
+                                using (System.Security.Cryptography.MD5 hasher = System.Security.Cryptography.MD5.Create())
+                                {
+                                    isOk = acc.PasswordHashBase64.Equals(Convert.ToBase64String(hasher.ComputeHash(Encoding.UTF8.GetBytes(password))));
+                                }
+                                break;
+                            case (int)Enums.HMAC.RIPEMD160:
+                                using (System.Security.Cryptography.RIPEMD160 hasher = System.Security.Cryptography.RIPEMD160.Create())
+                                {
+                                    isOk = acc.PasswordHashBase64.Equals(Convert.ToBase64String(hasher.ComputeHash(Encoding.UTF8.GetBytes(password))));
+                                }
+                                break;
+                            case (int)Enums.HMAC.SHA1:
+                                using (System.Security.Cryptography.SHA1 hasher = System.Security.Cryptography.SHA1.Create())
+                                {
+                                    isOk = acc.PasswordHashBase64.Equals(Convert.ToBase64String(hasher.ComputeHash(Encoding.UTF8.GetBytes(password))));
+                                }
+                                break;
+                            case (int)Enums.HMAC.SHA256:
+                                using (System.Security.Cryptography.SHA256 hasher = System.Security.Cryptography.SHA256.Create())
+                                {
+                                    isOk = acc.PasswordHashBase64.Equals(Convert.ToBase64String(hasher.ComputeHash(Encoding.UTF8.GetBytes(password))));
+                                }
+                                break;
+                            case (int)Enums.HMAC.SHA384:
+                                using (System.Security.Cryptography.SHA384 hasher = System.Security.Cryptography.SHA384.Create())
+                                {
+                                    isOk = acc.PasswordHashBase64.Equals(Convert.ToBase64String(hasher.ComputeHash(Encoding.UTF8.GetBytes(password))));
+                                }
+                                break;
+                            case (int)Enums.HMAC.SHA512:
+                                using (System.Security.Cryptography.SHA512 hasher = System.Security.Cryptography.SHA512.Create())
+                                {
+                                    isOk = acc.PasswordHashBase64.Equals(Convert.ToBase64String(hasher.ComputeHash(Encoding.UTF8.GetBytes(password))));
+                                }
+                                break;
+                            case (int)Enums.HMAC.HMACMD5:
+                                saltBytes = Convert.FromBase64String(acc.HashSaltBase64);
+                                hmac = new System.Security.Cryptography.HMACMD5(saltBytes);
+                                isOk = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password))).Equals(acc.PasswordHashBase64);
+                                break;
+                            case (int)Enums.HMAC.HMACRIPEMD160:
+                                saltBytes = Convert.FromBase64String(acc.HashSaltBase64);
+                                hmac = new System.Security.Cryptography.HMACRIPEMD160(saltBytes);
+                                isOk = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password))).Equals(acc.PasswordHashBase64);
+                                break;
+                            case (int)Enums.HMAC.HMACSHA1:
+                                saltBytes = Convert.FromBase64String(acc.HashSaltBase64);
+                                hmac = new System.Security.Cryptography.HMACSHA1(saltBytes);
+                                isOk = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password))).Equals(acc.PasswordHashBase64);
+                                break;
+                            case (int)Enums.HMAC.HMACSHA256:
+                                saltBytes = Convert.FromBase64String(acc.HashSaltBase64);
+                                hmac = new System.Security.Cryptography.HMACSHA256(saltBytes);
+                                isOk = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password))).Equals(acc.PasswordHashBase64);
+                                break;
+                            case (int)Enums.HMAC.HMACSHA384:
+                                saltBytes = Convert.FromBase64String(acc.HashSaltBase64);
+                                hmac = new System.Security.Cryptography.HMACSHA384(saltBytes);
+                                isOk = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password))).Equals(acc.PasswordHashBase64);
+                                break;
+                            case (int)Enums.HMAC.HMACSHA512:
+                                saltBytes = Convert.FromBase64String(acc.HashSaltBase64);
+                                hmac = new System.Security.Cryptography.HMACSHA512(saltBytes);
+                                isOk = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(password))).Equals(acc.PasswordHashBase64);
+                                break;
+                            default:
+                                throw new NotImplementedException("Unspecified hash type.");
+                        }
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Cannot login", ex);
+                isOk = false;
+            }
+            return isOk;
+        }
     }
 }

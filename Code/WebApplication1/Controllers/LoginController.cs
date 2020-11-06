@@ -28,7 +28,7 @@ namespace WebApplication1.Controllers
         {
             string username = form["username"];
             string password = form["password"];
-            if ((username == "sampleusername") && password == "password1")
+            if (AuthorizeService.Login(username, password))
             {
                 HttpContext.SetAuthorizationCookie(username);
                 return RedirectToAction("Index", "Home");
