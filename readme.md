@@ -51,9 +51,9 @@ You can use this as a template for other web application.
 * Build CSS with **sass** command. For example, **sass Site.scss Site.css** command will build **Site.css** and **Site.css.map** from **Site.scss**. For easy use in this repo, I created a batch file **Sass build.bat** at the root directory.
 * The command in that batch file has a **--watch** parameter. Therefore, the console will continuously watch the source file and compiles each time it detects any change. You only need to run the batch file once and keep the console open during your work with the solution.
 
-There is a rule telling that we should not commit files that were built from source. However, we still have to commit **.scss**, **.css**, and **.css.map** files even though **.css**, and **.css.map** were generated from **.scss** because the actual file that the browser uses is **.css** file.
+Source control ruling states that we should not commit files that were built from source. However, we still have to commit **.scss**, **.css**, and **.css.map** files even though **.css**, and **.css.map** were generated from **.scss** because the actual file that the browser uses is **.css** file.
 
-To make sure the built files are not changed, please make sure you use the same version of Dart Sass as I do.   
+If you would like to contribute, please use the same version of Dart Sass so that the compiled CSS won't be in a mess.
 
 # Future implementations
 
@@ -61,3 +61,4 @@ To make sure the built files are not changed, please make sure you use the same 
 * Implement login form submission, checking the submitted information with that in *Authorize* database and return a JWT in the response's cookie.
 * Implement logic so that the web only accepted tokens issued by itself. Tips: use *TokenIssued* table in *Authorize* database.
 * A Quartz scheduler (either in-memory or database) that cleanup expired tokens in *TokenIssued* table.
+* Google Maps API
