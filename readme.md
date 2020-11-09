@@ -19,6 +19,7 @@ You can use this as a template for other web application.
 * My preferred line break style: Windows-style (\r\n).
 * SQL Server 2017: 14.0.2027.
 * SQL Server Management Studio (SSMS) v17.9
+* Memurai
 
 # Implemented items
 
@@ -55,6 +56,18 @@ Source control ruling states that we should not commit files that were built fro
 
 If you would like to contribute, please use the same version of Dart Sass so that the compiled CSS won't be in a mess.
 
+# Memurai
+
+This is a alternative Redis for Windows. Its command syntax is almost the same as Redis'.
+
+Future plan: I intend to use Memurai to store data which is frequently accessed. We can lease the burden of the main database.
+
+## Install Memurai
+
+Download Memurai from: [https://www.memurai.com/](https://www.memurai.com/)
+
+You can use **memurai --help** and **memurai-cli --help** to study their syntax.
+
 # Future implementations
 
 * Highcharts
@@ -62,4 +75,5 @@ If you would like to contribute, please use the same version of Dart Sass so tha
 * Implement logic so that the web only accepted tokens issued by itself. Tips: use *TokenIssued* table in *Authorize* database.
 * A Quartz scheduler (either in-memory or database) that cleanup expired tokens in *TokenIssued* table.
 * Google Maps API
+* Memurai
 * Paypal sandbox API
