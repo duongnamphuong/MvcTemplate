@@ -22,7 +22,8 @@ You can use this as a template for other web application.
 
 # Implemented items
 
-* A simple Login template. Currently, it is pseudo because it checks user and password hard-coded. 
+* Login form submission, checking the submitted information with that in *Authorize* database and return a JWT in the response's cookie.
+* A Quartz scheduler (in-memory) that cleanups expired tokens in *TokenIssued* table. Please note that: the feature that adding data to that table was not implemented yet. I'll do it later (please check **Future implementations**).
 * A customized Authorize Attribute
 * JSON Web Token (JWT)
 * SCSS (Sassy CSS)
@@ -58,8 +59,6 @@ If you would like to contribute, please use the same version of Dart Sass so tha
 # Future implementations
 
 * Highcharts
-* Implement login form submission, checking the submitted information with that in *Authorize* database and return a JWT in the response's cookie.
 * Implement logic so that the web only accepted tokens issued by itself. Tips: use *TokenIssued* table in *Authorize* database.
-* A Quartz scheduler (either in-memory or database) that cleanup expired tokens in *TokenIssued* table.
 * Google Maps API
 * Paypal sandbox API
