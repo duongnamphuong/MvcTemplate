@@ -240,12 +240,29 @@ namespace AuthorizeBll
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Cannot login", ex);
                 isOk = false;
             }
             return isOk;
+        }
+
+        public static void CleanExpiredTokens()
+        {
+            try
+            {
+                using (AuthorizeEntities ctx = new AuthorizeEntities())
+                {
+                    var tokenToDelete = ctx.TokenIssueds.Where(x => x.ExpireAtUtc >= DateTime.UtcNow);
+                    ctx.TokenIssueds.RemoveRange(tokenToDelete);
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Error during token cleanup.", ex);
+            }
         }
     }
 }

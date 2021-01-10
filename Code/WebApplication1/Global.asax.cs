@@ -19,6 +19,7 @@ namespace WebApplication1
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             InitSettingConfig.RegisterInitSettings();
+            ScheduleConfig.RegisterSchedulers();
         }
     }
 }
