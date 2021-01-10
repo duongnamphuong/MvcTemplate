@@ -166,6 +166,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\InitSettingConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\ScheduleConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
     <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
@@ -405,6 +406,10 @@
     <ProjectReference Include="..\JwtGenerate\JwtGenerate.csproj">
       <Project>{5fd21f5c-052e-46e2-abef-4832338af352}</Project>
       <Name>JwtGenerate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Schedule\Schedule.csproj">
+      <Project>{0ce3d4e9-6603-418c-bf5b-7e282b522e6f}</Project>
+      <Name>Schedule</Name>
     </ProjectReference>
     <ProjectReference Include="..\Settings\Settings.csproj">
       <Project>{c7d36909-43c8-454b-8474-dda13447e46a}</Project>
