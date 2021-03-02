@@ -4,6 +4,7 @@ using Quartz.Impl;
 using Schedule.QuartzJobs;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -47,7 +48,7 @@ namespace Schedule.SingletonClasses
                 scheduler = schedulerFactory.GetScheduler();
                 scheduler.Start();
                 job = JobBuilder.Create<TokenCleaningJob>().WithIdentity("myJob", "group1").Build();
-                string cronString = "0,30 * * ? * * *"; // At seconds :00 and :30, of every minute
+                string cronString = ConfigurationManager.AppSettings["TokenCleaningCron"];
                 trigger = TriggerBuilder.Create().WithIdentity("myTrigger", "group1").WithCronSchedule(cronString, x => x.InTimeZone(TimeZoneInfo.FindSystemTimeZoneById("UTC"))).Build();
             }
             catch (Exception ex)

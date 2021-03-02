@@ -53,9 +53,7 @@ You can use this as a template for other web application.
 * Build CSS with **sass** command. For example, **sass Site.scss Site.css** command will build **Site.css** and **Site.css.map** from **Site.scss**. For easy use in this repo, I created a batch file **Sass build.bat** at the root directory.
 * The command in that batch file has a **--watch** parameter. Therefore, the console will continuously watch the source file and compiles each time it detects any change. You only need to run the batch file once and keep the console open during your work with the solution.
 
-Source control ruling states that we should not commit files that were built from source. However, we still have to commit **.scss**, **.css**, and **.css.map** files even though **.css**, and **.css.map** were generated from **.scss** because the actual file that the browser uses is **.css** file.
-
-If you would like to contribute, please use the same version of Dart Sass so that the compiled CSS won't be in a mess.
+Generated files **Site.css** and **Site.css.map** are not include in Git repo, but their existence is still defined in project (such as **WebApplication1.csproj** and **BundleConfig.cs**). We need that setting so that those files are deployed in server. Those two are ignored by **.gitignore**. Please don't re-add them while keeping using SCSS.
 
 # Memurai
 

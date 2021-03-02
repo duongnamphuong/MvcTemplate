@@ -25,7 +25,7 @@ namespace WebApplication1.Authentication
             HttpCookie cookie = new HttpCookie(key);
             cookie.HttpOnly = false;
             cookie.Value = token;
-            cookie.Expires = DateTime.Now.AddHours(1);
+            cookie.Expires = DateTime.Now.AddSeconds(int.Parse(ConfigurationManager.AppSettings["TokenExpiresAfter"]));
             httpContext.Response.Cookies.Add(cookie);
         }
         public static void ClearAuthorizationCookie(this HttpContextBase httpContext)
