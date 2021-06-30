@@ -17,7 +17,7 @@ namespace WebApplication1.Controllers
         public ActionResult Index()
         {
             string token = HttpContext.GetAuthToken();
-            if (AuthUtility.IsAuthorized(token))
+            if (AuthUtility.IsAuthorized(token, true))
                 return RedirectToAction("Index", "Home");
             return View();
         }

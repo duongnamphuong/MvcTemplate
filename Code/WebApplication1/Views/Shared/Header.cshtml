@@ -4,7 +4,7 @@
     var jp = new RouteValueDictionary(Url.RequestContext.RouteData.Values);
     uk.Add(Settings.InitSetting.Instance.CultureCookieName, "en-US");
     jp.Add(Settings.InitSetting.Instance.CultureCookieName, "ja-JP");
-    bool isAuthorized = AuthUtility.IsAuthorized(ViewContext.Controller.ControllerContext.HttpContext.GetAuthToken());
+    bool isAuthorized = AuthUtility.IsAuthorized(ViewContext.Controller.ControllerContext.HttpContext.GetAuthToken(), false);
 }
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">@Resources.Resource.Company_name</a>

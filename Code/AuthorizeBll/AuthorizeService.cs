@@ -264,5 +264,29 @@ namespace AuthorizeBll
                 Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Error during token cleanup.", ex);
             }
         }
+
+        public static void AddTokenIssued()
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Error during adding TokenIssued", ex);
+            }
+        }
+
+        public static void ExtendTokenIssued()
+        {
+            try
+            {
+                throw new NotImplementedException();
+            }
+            catch (Exception ex)
+            {
+                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Error during extending TokenIssued", ex);
+            }
+        }
     }
 }

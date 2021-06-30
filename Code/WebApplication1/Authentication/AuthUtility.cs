@@ -1,4 +1,5 @@
-﻿using JwtGenerate;
+﻿using AuthorizeBll;
+using JwtGenerate;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -27,6 +28,7 @@ namespace WebApplication1.Authentication
             cookie.Value = token;
             cookie.Expires = DateTime.Now.AddSeconds(int.Parse(ConfigurationManager.AppSettings["TokenExpiresAfter"]));
             httpContext.Response.Cookies.Add(cookie);
+            AddTokenIssued();
         }
         public static void ClearAuthorizationCookie(this HttpContextBase httpContext)
         {
@@ -51,7 +53,7 @@ namespace WebApplication1.Authentication
             }
             return username;
         }
-        public static bool IsAuthorized(string token)
+        public static bool IsAuthorized(string token, bool extendToken)
         {
             JwtUtility<JwtHeader, PayloadIdentity> jwtUtil = new JwtUtility<JwtHeader, PayloadIdentity>(new JwtHeader(), new PayloadIdentity());
             PayloadIdentity payloadIdentity = null;
@@ -61,7 +63,20 @@ namespace WebApplication1.Authentication
                     payloadIdentity = jwtUtil.GetPayload(token);
             }
             catch (Exception) { }
-            return token != null && jwtUtil.IsValid(token) && payloadIdentity != null && !payloadIdentity.isTokenExpired();
+            bool isAuthorized = (token != null && jwtUtil.IsValid(token) && payloadIdentity != null && !payloadIdentity.isTokenExpired());
+            if (isAuthorized && extendToken)
+            {
+                ExtendTokenIssued();
+            }
+            return isAuthorized;
+        }
+        private static void AddTokenIssued()
+        {
+            AuthorizeService.AddTokenIssued();
+        }
+        private static void ExtendTokenIssued()
+        {
+            AuthorizeService.ExtendTokenIssued();
         }
     }
 }
