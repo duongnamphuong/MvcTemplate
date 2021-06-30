@@ -28,7 +28,7 @@ namespace WebApplication1.Authentication
             cookie.Value = token;
             cookie.Expires = DateTime.Now.AddSeconds(int.Parse(ConfigurationManager.AppSettings["TokenExpiresAfter"]));
             httpContext.Response.Cookies.Add(cookie);
-            AddTokenIssued(username, token);
+            AddTokenIssued(username, token, DateGenerator.ZeroUnixTimestamp.AddSeconds(identity.IssuedAt), DateGenerator.ZeroUnixTimestamp.AddSeconds(identity.ExpireAt));
         }
         public static void ClearAuthorizationCookie(this HttpContextBase httpContext)
         {
@@ -70,9 +70,9 @@ namespace WebApplication1.Authentication
             }
             return isAuthorized;
         }
-        private static void AddTokenIssued(string username, string token)
+        private static void AddTokenIssued(string username, string token, DateTime IssuedAtUtc, DateTime ExpireAtUtc)
         {
-            AuthorizeService.AddTokenIssued(username, token);
+            AuthorizeService.AddTokenIssued(username, token, IssuedAtUtc, ExpireAtUtc);
         }
         private static void ExtendTokenIssued(string username, string token)
         {

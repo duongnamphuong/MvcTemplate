@@ -2,6 +2,7 @@
 using LogUtil;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -254,7 +255,7 @@ namespace AuthorizeBll
             {
                 using (AuthorizeEntities ctx = new AuthorizeEntities())
                 {
-                    var tokenToDelete = ctx.TokenIssueds.Where(x => x.ExpireAtUtc >= DateTime.UtcNow);
+                    var tokenToDelete = ctx.TokenIssueds.Where(x => x.ExpireAtUtc <= DateTime.UtcNow);
                     ctx.TokenIssueds.RemoveRange(tokenToDelete);
                     ctx.SaveChanges();
                 }
@@ -265,11 +266,28 @@ namespace AuthorizeBll
             }
         }
 
-        public static void AddTokenIssued(string username, string token)
+        public static void AddTokenIssued(string username, string token, DateTime IssuedAtUtc, DateTime ExpireAtUtc)
         {
             try
             {
-                throw new NotImplementedException();
+                using (AuthorizeEntities ctx = new AuthorizeEntities())
+                {
+                    Account account = ctx.Accounts.Where(a => a.Uname == username).SingleOrDefault();
+                    if (account != null)
+                    {
+                        account.TokenIssueds.Add(new TokenIssued()
+                        {
+                            Val = token,
+                            IssuedAtUtc = IssuedAtUtc,
+                            ExpireAtUtc = ExpireAtUtc
+                        });
+                        ctx.SaveChanges();
+                    }
+                    else
+                    {
+
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -281,7 +299,15 @@ namespace AuthorizeBll
         {
             try
             {
-                throw new NotImplementedException();
+                using (AuthorizeEntities ctx = new AuthorizeEntities())
+                {
+                    TokenIssued tokenIssued = ctx.TokenIssueds.Where(t => t.Account.Uname == username && t.Val == token).SingleOrDefault();
+                    if (tokenIssued != null)
+                    {
+                        tokenIssued.ExpireAtUtc = DateTime.UtcNow.AddSeconds(int.Parse(ConfigurationManager.AppSettings["TokenExpiresAfter"]));
+                        ctx.SaveChanges();
+                    }
+                }
             }
             catch (Exception ex)
             {
