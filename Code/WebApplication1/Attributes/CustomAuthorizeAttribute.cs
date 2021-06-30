@@ -26,7 +26,7 @@ namespace WebApplication1.Attributes
             {
                 return false;
             }
-            return AuthUtility.IsAuthorized(token);
+            return AuthUtility.IsAuthorized(token, true);
         }
         protected override void HandleUnauthorizedRequest(AuthorizationContext filterContext)
         {
