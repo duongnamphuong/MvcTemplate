@@ -28,7 +28,7 @@ namespace WebApplication1.Authentication
             cookie.Value = token;
             cookie.Expires = DateTime.Now.AddSeconds(int.Parse(ConfigurationManager.AppSettings["TokenExpiresAfter"]));
             httpContext.Response.Cookies.Add(cookie);
-            AddTokenIssued();
+            AddTokenIssued(username, token);
         }
         public static void ClearAuthorizationCookie(this HttpContextBase httpContext)
         {
@@ -66,17 +66,17 @@ namespace WebApplication1.Authentication
             bool isAuthorized = (token != null && jwtUtil.IsValid(token) && payloadIdentity != null && !payloadIdentity.isTokenExpired());
             if (isAuthorized && extendToken)
             {
-                ExtendTokenIssued();
+                ExtendTokenIssued(payloadIdentity.Username, token);
             }
             return isAuthorized;
         }
-        private static void AddTokenIssued()
+        private static void AddTokenIssued(string username, string token)
         {
-            AuthorizeService.AddTokenIssued();
+            AuthorizeService.AddTokenIssued(username, token);
         }
-        private static void ExtendTokenIssued()
+        private static void ExtendTokenIssued(string username, string token)
         {
-            AuthorizeService.ExtendTokenIssued();
+            AuthorizeService.ExtendTokenIssued(username, token);
         }
     }
 }

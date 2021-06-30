@@ -265,7 +265,7 @@ namespace AuthorizeBll
             }
         }
 
-        public static void AddTokenIssued()
+        public static void AddTokenIssued(string username, string token)
         {
             try
             {
@@ -277,7 +277,7 @@ namespace AuthorizeBll
             }
         }
 
-        public static void ExtendTokenIssued()
+        public static void ExtendTokenIssued(string username, string token)
         {
             try
             {
