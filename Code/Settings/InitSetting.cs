@@ -52,5 +52,10 @@ namespace Settings
         {
             this.AuthorizationTokenLifeSpanInSecond = AuthorizationTokenLifeSpanInSecond;
         }
+        public string AuthCookieName { get; private set; }
+        public void InitAuthCookieName(string AuthenticationCookieName)
+        {
+            AuthCookieName = AuthenticationCookieName;
+        }
     }
 }

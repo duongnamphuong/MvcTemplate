@@ -2,7 +2,6 @@
 using JwtGenerate;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Web;
 using WebApplication1.Modules;
@@ -13,7 +12,7 @@ namespace WebApplication1.Authentication
     {
         public static void SetAuthorizationCookie(this HttpContextBase httpContext, string username)
         {
-            string key = ConfigurationManager.AppSettings["AuthenticationCookieName"];
+            string key = Settings.InitSetting.Instance.AuthCookieName;
             DateTime utcNow = DateTime.UtcNow;
             PayloadIdentity identity = new PayloadIdentity()
             {
@@ -32,13 +31,13 @@ namespace WebApplication1.Authentication
         }
         public static void ClearAuthorizationCookie(this HttpContextBase httpContext)
         {
-            string key = ConfigurationManager.AppSettings["AuthenticationCookieName"];
+            string key = Settings.InitSetting.Instance.AuthCookieName;
             if (httpContext.Request.Cookies[key] != null)
                 httpContext.Response.Cookies[key].Expires = DateTime.Now.AddDays(-1);
         }
         public static string GetAuthToken(this HttpContextBase httpContext)
         {
-            var cookie = httpContext.Request.Cookies[ConfigurationManager.AppSettings["AuthenticationCookieName"]];
+            var cookie = httpContext.Request.Cookies[Settings.InitSetting.Instance.AuthCookieName];
             return cookie != null ? cookie.Value : null;
         }
         public static string GetUsername(this HttpContextBase httpContext)
