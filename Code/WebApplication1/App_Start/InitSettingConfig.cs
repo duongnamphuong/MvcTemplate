@@ -15,6 +15,7 @@ namespace WebApplication1
             Settings.InitSetting.Instance.InitMaxNumberOfBytesInSalt(255);
             Settings.InitSetting.Instance.InitCultureCookieName(ConfigurationManager.AppSettings["CultureCookieName"]);
             Settings.InitSetting.Instance.InitCookieLifeSpan(new TimeSpan(1, 0, 0));
+            Settings.InitSetting.Instance.InitAuthorizationTokenLifeSpanInSecond(int.Parse((ConfigurationManager.AppSettings["TokenExpiresAfter"])));
         }
     }
 }

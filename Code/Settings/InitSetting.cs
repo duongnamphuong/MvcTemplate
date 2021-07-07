@@ -47,5 +47,10 @@ namespace Settings
         {
             this.CookieLifeSpan = CookieLifeSpan;
         }
+        public int AuthorizationTokenLifeSpanInSecond { get; private set; }
+        public void InitAuthorizationTokenLifeSpanInSecond(int AuthorizationTokenLifeSpanInSecond)
+        {
+            this.AuthorizationTokenLifeSpanInSecond = AuthorizationTokenLifeSpanInSecond;
+        }
     }
 }

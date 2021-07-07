@@ -2,7 +2,6 @@
 using LogUtil;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -304,7 +303,7 @@ namespace AuthorizeBll
                     TokenIssued tokenIssued = ctx.TokenIssueds.Where(t => t.Account.Uname == username && t.Val == token).SingleOrDefault();
                     if (tokenIssued != null)
                     {
-                        tokenIssued.ExpireAtUtc = DateTime.UtcNow.AddSeconds(int.Parse(ConfigurationManager.AppSettings["TokenExpiresAfter"]));
+                        tokenIssued.ExpireAtUtc = DateTime.UtcNow.AddSeconds(Settings.InitSetting.Instance.AuthorizationTokenLifeSpanInSecond);
                         ctx.SaveChanges();
                     }
                 }

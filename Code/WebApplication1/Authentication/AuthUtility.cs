@@ -18,7 +18,7 @@ namespace WebApplication1.Authentication
             PayloadIdentity identity = new PayloadIdentity()
             {
                 IssuedAt = DateGenerator.ToUnixTimeStamp(utcNow),
-                ExpireAt = DateGenerator.ToUnixTimeStamp(utcNow) + int.Parse(ConfigurationManager.AppSettings["TokenExpiresAfter"]),
+                ExpireAt = DateGenerator.ToUnixTimeStamp(utcNow) + Settings.InitSetting.Instance.AuthorizationTokenLifeSpanInSecond,
                 Username = username
             };
             JwtUtility<JwtHeader, PayloadIdentity> jwtUtil = new JwtUtility<JwtHeader, PayloadIdentity>(new JwtHeader(), identity);
@@ -26,7 +26,7 @@ namespace WebApplication1.Authentication
             HttpCookie cookie = new HttpCookie(key);
             cookie.HttpOnly = false;
             cookie.Value = token;
-            cookie.Expires = DateTime.Now.AddSeconds(int.Parse(ConfigurationManager.AppSettings["TokenExpiresAfter"]));
+            cookie.Expires = DateTime.Now.AddSeconds(Settings.InitSetting.Instance.AuthorizationTokenLifeSpanInSecond);
             httpContext.Response.Cookies.Add(cookie);
             AddTokenIssued(username, token, DateGenerator.ZeroUnixTimestamp.AddSeconds(identity.IssuedAt), DateGenerator.ZeroUnixTimestamp.AddSeconds(identity.ExpireAt));
         }
