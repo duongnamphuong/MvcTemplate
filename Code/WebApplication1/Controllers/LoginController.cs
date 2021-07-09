@@ -36,7 +36,6 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        [AllowAnonymous]
         public ActionResult Logout()
         {
             HttpContext.ClearAuthorizationCookie();
