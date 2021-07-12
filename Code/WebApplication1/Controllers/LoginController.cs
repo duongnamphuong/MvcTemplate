@@ -36,7 +36,6 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        [AllowAnonymous]
         public ActionResult Logout()
         {
             HttpContext.ClearAuthorizationCookie();
@@ -54,8 +53,10 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public ActionResult Register(FormCollection form)
         {
-            if (AuthorizeService.RegisterUser(form["username"], form["password"], int.Parse(form["hashtype"])))
+            string username = form["username"];
+            if (AuthorizeService.RegisterUser(username, form["password"], int.Parse(form["hashtype"])))
             {
+                HttpContext.SetAuthorizationCookie(username);
                 return RedirectToAction("Index", "Home");
             }
             else
