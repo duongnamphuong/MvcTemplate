@@ -1,3 +1,4 @@
+﻿
 # How to use script
 
 * Create a blank database in SQL Server, naming it "Authorize".
@@ -22,8 +23,8 @@ Right-click *Authorize* database, choose *Tasks* > *Generate Scripts*
 
 Database-first.
 
-* Firstly, you change the schema of the database.
+* Change the schema (structure) of the database. For example, change data type of a column, or add column to a table.
 
-* After that, return to the Project solution (*AuthorizeDal* project), then "update" the "Model" (*AuthorizeEdm.edmx* file) in the project.
+* Return to the Project solution (*AuthorizeDal* project), then "update" the "Model" (*AuthorizeEdm.edmx* file) in the project.
 
-* Finally, export the database to script file, overwriting the current file.
+* Export the database to script file, overwriting the current file.
