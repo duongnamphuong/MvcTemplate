@@ -87,8 +87,7 @@ These getter and setter: `{ get; private set; }` along with `Init...` methods th
 
 **Question**: What is the current version of Quartz that this project uses?
 
-**Answer**: This program uses Quartz version 2.6.1. The latest one before version 3x is 2.6.2. I will consider updating to 2.6.2, but not yet update to version 3, because since version 3x, the setup code changed drastically.
-However, I think I  shall go to version 3x after studying its syntax.
+**Answer**: This program uses Quartz version 2.6.2, the latest version before version 3. Since version 3x, the setup code changed drastically. I think I shall go to version 3x after studying its syntax.
 
 ---
 
