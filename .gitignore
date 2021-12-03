@@ -263,3 +263,10 @@ __pycache__/
 # Ignore CSS and map files generated from SCSS source
 /Code/WebApplication1/Content/Site.css
 /Code/WebApplication1/Content/Site.css.map
+
+# Ignore libraries downloaded with wget
+Code/WebApplication1/Content/opentip/css/opentip.css
+Code/WebApplication1/Scripts/highcharts/highcharts.src.js
+Code/WebApplication1/Scripts/opentip/lib/adapter-jquery.js
+Code/WebApplication1/Scripts/opentip/lib/adapter-native.js
+Code/WebApplication1/Scripts/opentip/lib/opentip.js
