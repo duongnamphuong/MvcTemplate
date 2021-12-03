@@ -168,4 +168,7 @@
   <data name="Select_hash_type" xml:space="preserve">
     <value>【ハッシュ関数選択】</value>
   </data>
+  <data name="Highcharts" xml:space="preserve">
+    <value>Highcharts</value>
+  </data>
 </root>
