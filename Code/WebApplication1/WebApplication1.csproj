@@ -221,6 +221,7 @@
     <Content Include="Content\country-flags\japan-flag-xs.png" />
     <Content Include="Content\country-flags\united-kingdom-flag-xs.png" />
     <Content Include="Content\country-flags\readme.md" />
+    <Content Include="Content\opentip\css\opentip.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -281,6 +282,9 @@
     <Content Include="Scripts\jquery-3.5.1.slim.js" />
     <Content Include="Scripts\jquery-3.5.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\opentip\lib\adapter-jquery.js" />
+    <Content Include="Scripts\opentip\lib\adapter-native.js" />
+    <Content Include="Scripts\opentip\lib\opentip.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
