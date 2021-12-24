@@ -16,6 +16,7 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/highcharts")
     @Scripts.Render("~/bundles/opentip")
+    <script src="https://www.paypal.com/sdk/js?client-id=@(Settings.InitSetting.Instance.PaypalClientID)&currency=USD"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

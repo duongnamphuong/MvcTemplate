@@ -57,5 +57,15 @@ namespace Settings
         {
             AuthCookieName = AuthenticationCookieName;
         }
+        public string PaypalClientID { get; private set; }
+        public void InitPaypalClientID(string ClientID)
+        {
+            PaypalClientID = ClientID;
+        }
+        public string PaypalTransferAmount { get; private set; }
+        public void InitPaypalTransferAmount(string TransferAmount)
+        {
+            PaypalTransferAmount = TransferAmount;
+        }
     }
 }
