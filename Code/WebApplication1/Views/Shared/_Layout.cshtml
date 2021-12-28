@@ -1,6 +1,8 @@
-﻿@{ 
+﻿@using WebApplication1.Authentication;
+@{
     string cultureName = ViewBag.cultureName;
     string locale = cultureName.Replace('-', '_');
+    bool isAuthorized = AuthUtility.IsAuthorized(ViewContext.Controller.ControllerContext.HttpContext.GetAuthToken(), false);
 }
 <!DOCTYPE html>
 <html>
@@ -20,7 +22,10 @@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/highcharts")
     @Scripts.Render("~/bundles/opentip")
-    <script src="https://www.paypal.com/sdk/js?client-id=@(Settings.InitSetting.Instance.PaypalClientID)&currency=USD&locale=@(locale)"></script>
+    @if (isAuthorized)
+    {
+        <script src="https://www.paypal.com/sdk/js?client-id=@(Settings.InitSetting.Instance.PaypalClientID)&currency=USD&locale=@(locale)"></script>
+    }
     @RenderSection("scripts", required: false)
 </body>
 </html>
