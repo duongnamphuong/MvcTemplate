@@ -58,6 +58,7 @@ namespace WebApplication1.Controllers
             }
             Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(cultureName);
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
+            ViewBag.cultureName = cultureName;
             SetCultureCookie(cultureName);
         }
     }
