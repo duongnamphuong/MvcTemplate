@@ -17,6 +17,8 @@ namespace WebApplication1
             Settings.InitSetting.Instance.InitCookieLifeSpan(new TimeSpan(1, 0, 0));
             Settings.InitSetting.Instance.InitAuthorizationTokenLifeSpanInSecond(int.Parse((ConfigurationManager.AppSettings["TokenExpiresAfter"])));
             Settings.InitSetting.Instance.InitAuthCookieName(ConfigurationManager.AppSettings["AuthenticationCookieName"]);
+            Settings.InitSetting.Instance.InitPaypalClientID(ConfigurationManager.AppSettings["PaypalClientID"]);
+            Settings.InitSetting.Instance.InitPaypalTransferAmount(ConfigurationManager.AppSettings["PaypalTransferAmount"]);
         }
     }
 }
