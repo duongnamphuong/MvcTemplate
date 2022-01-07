@@ -200,6 +200,7 @@
     <Compile Include="Authentication\AuthUtility.cs" />
     <Compile Include="Authentication\PayloadIdentity.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HighchartsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -390,6 +391,7 @@
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Highcharts\Index.cshtml" />
     <Content Include="Views\Paypal\Index.cshtml" />
+    <Content Include="Views\File\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -415,6 +417,10 @@
     <ProjectReference Include="..\JwtGenerate\JwtGenerate.csproj">
       <Project>{5fd21f5c-052e-46e2-abef-4832338af352}</Project>
       <Name>JwtGenerate</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LogUtil\LogUtil.csproj">
+      <Project>{9E6E0792-1D00-4728-9BAA-5B953D44A51E}</Project>
+      <Name>LogUtil</Name>
     </ProjectReference>
     <ProjectReference Include="..\Schedule\Schedule.csproj">
       <Project>{0ce3d4e9-6603-418c-bf5b-7e282b522e6f}</Project>
