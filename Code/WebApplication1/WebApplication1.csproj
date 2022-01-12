@@ -199,7 +199,6 @@
     <Compile Include="Attributes\CustomAuthorizeAttribute.cs" />
     <Compile Include="Authentication\AuthUtility.cs" />
     <Compile Include="Authentication\PayloadIdentity.cs" />
-    <Compile Include="ClassExtend\DownloadResult.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\FileController.cs" />
     <Compile Include="Controllers\HighchartsController.cs" />

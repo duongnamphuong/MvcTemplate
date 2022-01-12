@@ -7,7 +7,6 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Attributes;
-using WebApplication1.ClassExtend;
 
 namespace WebApplication1.Controllers
 {
@@ -34,15 +33,21 @@ namespace WebApplication1.Controllers
         }
         public ActionResult Download(string fileName)
         {
-            if (fileName == null)
-                return View("Error");
-            //var appData = Server.MapPath("~/App_Data/files");
-            //var fullPath = Path.Combine(appData, name);
-            return new DownloadResult
+            
+            try
             {
-                VirtualPath = "~/App_Data/files/" + fileName,
-                FileDownloadName = fileName
-            };
+                if (fileName == null)
+                {
+                    throw new Exception($"Error attempting to download: {nameof(fileName)} is null.");
+                }
+                string virtualPathToFile = "~/App_Data/files/" + fileName;
+                return File(virtualPathToFile, "application/octet-stream", fileName);
+            }
+            catch (Exception ex)
+            {
+                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, $"Error attempting to download", ex);
+                return View("Error");
+            }
         }
     }
 }
