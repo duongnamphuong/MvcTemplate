@@ -32,16 +32,16 @@ namespace WebApplication1.Controllers
             ViewBag.Title = Resources.Resource.File;
             return View();
         }
-        public ActionResult Download(string name)
+        public ActionResult Download(string fileName)
         {
-            if (name == null)
+            if (fileName == null)
                 return View("Error");
             //var appData = Server.MapPath("~/App_Data/files");
             //var fullPath = Path.Combine(appData, name);
             return new DownloadResult
             {
-                VirtualPath = "~/App_Data/files/" + name,
-                FileDownloadName = name
+                VirtualPath = "~/App_Data/files/" + fileName,
+                FileDownloadName = fileName
             };
         }
     }
