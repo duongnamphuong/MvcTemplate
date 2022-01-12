@@ -25,6 +25,12 @@ namespace WebApplication1
                       "~/Content/site.css",
                       "~/Content/opentip/css/opentip.css"));
 
+            bundles.Add(new StyleBundle("~/bundles/font-awesome").Include(
+                      "~/Content/fontawesome.min.css",
+                      "~/Content/brands.min.css",
+                      "~/Content/solid.min.css"
+                ));
+
             bundles.Add(new ScriptBundle("~/bundles/highcharts").Include(
                       "~/Scripts/highcharts/highcharts.src.js"
                 ));

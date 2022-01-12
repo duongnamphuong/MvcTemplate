@@ -19,7 +19,9 @@
                 <tr>
                     <th scope="row">@(++cnt)</th>
                     <td>@f.Name</td>
-                    <td></td>
+                    <td>
+                        <a href="@Url.Action("download")" class="fas fa-download"></a>
+                    </td>
                 </tr>
             }
         </tbody>

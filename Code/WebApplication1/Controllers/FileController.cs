@@ -31,5 +31,12 @@ namespace WebApplication1.Controllers
             ViewBag.Title = Resources.Resource.File;
             return View();
         }
+        public ActionResult Download()
+        {
+            return Json(new {
+                success = true,
+                note = "mock result"
+            }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
