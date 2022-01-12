@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Attributes;
+using WebApplication1.ClassExtend;
 
 namespace WebApplication1.Controllers
 {
@@ -18,7 +19,7 @@ namespace WebApplication1.Controllers
         {
             try
             {
-                string RootDirectory = Server.MapPath("~");
+                string RootDirectory = Server.MapPath("~/App_Data/");
                 DirectoryInfo d = new DirectoryInfo($"{RootDirectory}files\\");
                 FileInfo[] Files = d.GetFiles("*.txt");
                 ViewBag.Files = Files;
@@ -31,12 +32,17 @@ namespace WebApplication1.Controllers
             ViewBag.Title = Resources.Resource.File;
             return View();
         }
-        public ActionResult Download()
+        public ActionResult Download(string name)
         {
-            return Json(new {
-                success = true,
-                note = "mock result"
-            }, JsonRequestBehavior.AllowGet);
+            if (name == null)
+                return View("Error");
+            //var appData = Server.MapPath("~/App_Data/files");
+            //var fullPath = Path.Combine(appData, name);
+            return new DownloadResult
+            {
+                VirtualPath = "~/App_Data/files/" + name,
+                FileDownloadName = name
+            };
         }
     }
 }

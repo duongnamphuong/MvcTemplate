@@ -20,7 +20,7 @@
                     <th scope="row">@(++cnt)</th>
                     <td>@f.Name</td>
                     <td>
-                        <a href="@Url.Action("download")" class="fas fa-download"></a>
+                        <a href="@Url.Action("download", new { name = f.Name })" class="fas fa-download"></a>
                     </td>
                 </tr>
             }
