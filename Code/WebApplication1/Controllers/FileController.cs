@@ -33,7 +33,6 @@ namespace WebApplication1.Controllers
         }
         public ActionResult Download(string fileName)
         {
-            
             try
             {
                 if (fileName == null)
@@ -41,7 +40,14 @@ namespace WebApplication1.Controllers
                     throw new Exception($"Error attempting to download: {nameof(fileName)} is null.");
                 }
                 string virtualPathToFile = "~/App_Data/files/" + fileName;
-                return File(virtualPathToFile, "application/octet-stream", fileName);
+                if (System.IO.File.Exists(Server.MapPath(virtualPathToFile)))
+                {
+                    return File(virtualPathToFile, "application/octet-stream", fileName);
+                }
+                else
+                {
+                    return new HttpStatusCodeResult(404, "File not found.");
+                }
             }
             catch (Exception ex)
             {
