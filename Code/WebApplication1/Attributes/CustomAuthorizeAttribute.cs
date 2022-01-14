@@ -1,7 +1,9 @@
 ﻿using JwtGenerate;
+using LogUtil;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
@@ -22,8 +24,9 @@ namespace WebApplication1.Attributes
             {
                 token = httpContext.GetAuthToken();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, $"AuthorizeCore error", ex);
                 return false;
             }
             return AuthUtility.IsAuthorized(token, true);

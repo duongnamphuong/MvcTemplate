@@ -171,4 +171,13 @@
   <data name="Highcharts" xml:space="preserve">
     <value>Highcharts</value>
   </data>
+  <data name="File" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="File_name" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>Action</value>
+  </data>
 </root>

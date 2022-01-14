@@ -16,13 +16,16 @@
             @if (isAuthorized)
             {
                 <li class="nav-item active">
-                    <a class="nav-link" href="@Url.Action("Index", "Home")">@Resources.Resource.Home</a>
+                    <a class="nav-link" href="@Url.Action("index", "home")">@Resources.Resource.Home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="@Url.Action("Index", "Highcharts")">@Resources.Resource.Highcharts</a>
+                    <a class="nav-link" href="@Url.Action("index", "highcharts")">@Resources.Resource.Highcharts</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="@Url.Action("Index", "Paypal")">Paypal</a>
+                    <a class="nav-link" href="@Url.Action("index", "paypal")">Paypal</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="@Url.Action("index", "file")">@Resources.Resource.File</a>
                 </li>
             }
             <li class="nav-item dropdown">
