@@ -42,5 +42,13 @@
                 </div>
             </li>
         </ul>
+        @if (isAuthorized)
+        {
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="@Url.Action("logout", "login")">@Resources.Resource.Logout</a>
+                </li>
+            </ul>
+        }
     </div>
 </nav>
