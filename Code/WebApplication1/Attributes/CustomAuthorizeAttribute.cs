@@ -19,7 +19,7 @@ namespace WebApplication1.Attributes
     {
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            string token = null;
+            string token;
             try
             {
                 token = httpContext.GetAuthToken();
