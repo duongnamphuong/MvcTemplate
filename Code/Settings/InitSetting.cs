@@ -67,5 +67,10 @@ namespace Settings
         {
             PaypalTransferAmount = TransferAmount;
         }
+        public string TokenCleaningCron { get; private set; }
+        public void InitTokenCleaningCron(string TokenCleaningCron)
+        {
+            this.TokenCleaningCron = TokenCleaningCron;
+        }
     }
 }

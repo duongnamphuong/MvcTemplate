@@ -48,7 +48,7 @@ namespace Schedule.SingletonClasses
                 scheduler = schedulerFactory.GetScheduler();
                 scheduler.Start();
                 job = JobBuilder.Create<TokenCleaningJob>().WithIdentity("myJob", "group1").Build();
-                string cronString = ConfigurationManager.AppSettings["TokenCleaningCron"];
+                string cronString = Settings.InitSetting.Instance.TokenCleaningCron;
                 trigger = TriggerBuilder.Create().WithIdentity("myTrigger", "group1").WithCronSchedule(cronString, x => x.InTimeZone(TimeZoneInfo.FindSystemTimeZoneById("UTC"))).Build();
             }
             catch (Exception ex)

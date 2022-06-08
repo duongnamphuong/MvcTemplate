@@ -19,6 +19,7 @@ namespace WebApplication1
             Settings.InitSetting.Instance.InitAuthCookieName(ConfigurationManager.AppSettings["AuthenticationCookieName"]);
             Settings.InitSetting.Instance.InitPaypalClientID(ConfigurationManager.AppSettings["PaypalClientID"]);
             Settings.InitSetting.Instance.InitPaypalTransferAmount(ConfigurationManager.AppSettings["PaypalTransferAmount"]);
+            Settings.InitSetting.Instance.InitTokenCleaningCron(ConfigurationManager.AppSettings["TokenCleaningCron"]);
         }
     }
 }
