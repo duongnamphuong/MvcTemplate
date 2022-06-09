@@ -72,5 +72,10 @@ namespace Settings
         {
             this.TokenCleaningCron = TokenCleaningCron;
         }
+        public string JwtSecretBase64 { get; private set; }
+        public void InitJwtSecretBase64(string JwtSecretBase64)
+        {
+            this.JwtSecretBase64 = JwtSecretBase64;
+        }
     }
 }

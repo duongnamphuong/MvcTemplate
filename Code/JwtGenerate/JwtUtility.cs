@@ -21,7 +21,7 @@ namespace JwtGenerate
         {
             this.Header = Header;
             this.Payload = Payload;
-            Secret = Convert.FromBase64String(ConfigurationManager.AppSettings["JwtSecretInBase64"]);
+            Secret = Convert.FromBase64String(Settings.InitSetting.Instance.JwtSecretBase64);
         }
         public bool IsValid(string token)
         {
