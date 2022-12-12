@@ -2,10 +2,20 @@
     ViewBag.Title = Resources.Resource.Login;
 }
 @section scripts {
-    <!--Opentip-->
     <script type="text/javascript">
+        // Opentip
         var tip1 = '<span style="color:#007bff;">Login button</br><b>Opentip example</b></span>';
         new Opentip('#login-btn', tip1, { tipJoint: 'top', background: '#ff8400', borderColor: '#000000' });
+
+        // toggle show password
+        exampleInputPassword1 = document.getElementById("exampleInputPassword1");
+        function toggleShowPassword() {
+            if (exampleInputPassword1.type === "password") {
+                exampleInputPassword1.type = "text";
+            } else {
+                exampleInputPassword1.type = "password";
+            }
+        }
     </script>
 }
 <h1>@ViewBag.Title</h1>
@@ -16,7 +26,12 @@
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">@Resources.Resource.Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+        <div id="toggle-group">
+            <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+            <input type="checkbox" onclick="toggleShowPassword()" id="toggle-item" style="display:none;">
+            <label for="toggle-item" class="fa fa-eye"></label>
+            <label for="toggle-item" class="fa fa-eye-slash"></label>
+        </div>
     </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1" name="check">
