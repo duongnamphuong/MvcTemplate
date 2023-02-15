@@ -73,38 +73,3 @@ nav {
   }
 }
 /* Highcharts - end */
-
-/* toggle show password - start */
-#toggle-group {
-  position: relative;
-
-  #toggle-item {
-    ~ .fa-eye, ~ .fa-eye-slash {
-      position: absolute;
-      right: 10px;
-      z-index: 9999;
-      top: 12px;
-    }
-  }
-
-  #toggle-item:checked {
-    ~ .fa-eye {
-      display: none;
-    }
-
-    ~ .fa-eye-slash {
-      display: inherit;
-    }
-  }
-
-  #toggle-item:not(:checked) {
-    ~ .fa-eye {
-      display: inherit;
-    }
-
-    ~ .fa-eye-slash {
-      display: none;
-    }
-  }
-}
-/* toggle show password - end */
