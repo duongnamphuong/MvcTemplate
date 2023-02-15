@@ -2,20 +2,7 @@
     ViewBag.Title = Resources.Resource.Login;
 }
 @section scripts {
-    <script type="text/javascript">
-        // Opentip
-        var tip1 = '<span style="color:#007bff;">Login button</br><b>Opentip example</b></span>';
-        new Opentip('#login-btn', tip1, { tipJoint: 'top', background: '#ff8400', borderColor: '#000000' });
-
-        // hold/release to show/hide password
-        exampleInputPassword1 = document.getElementById("exampleInputPassword1");
-        function hold(target) {
-            exampleInputPassword1.type = "text";
-        }
-        function release(target) {
-            exampleInputPassword1.type = "password";
-        }
-    </script>
+    <script src="@Url.Content("~/Scripts/LoginController_Index.js")"></script>
 }
 <h1>@ViewBag.Title</h1>
 <form action="@Url.Action("Index", "Login")" method="post">
@@ -27,7 +14,7 @@
         <label for="exampleInputPassword1">@Resources.Resource.Password</label>
         <div id="toggle-group">
             <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-            <input type="button" id="toggle-trigger" onmousedown="hold(this)" ontouchstart="hold(this)" onmouseup="release(this)" onmouseleave="release(this)" onmouseout="release(this)" ontouchend="release(this)" ontouchcancel="release(this)" />
+            <input type="button" id="toggle-trigger" />
         </div>
     </div>
     <div class="form-group form-check">
