@@ -20,8 +20,9 @@ namespace WebApplication1.Controllers
             {
                 string RootDirectory = Server.MapPath("~/App_Data/");
                 DirectoryInfo d = new DirectoryInfo($"{RootDirectory}files\\");
-                FileInfo[] Files = d.GetFiles("*.txt");
-                ViewBag.Files = Files;
+                FileInfo[] FilesText = d.GetFiles("*.txt");
+                FileInfo[] FilesMidi = d.GetFiles("*.mid");
+                ViewBag.Files = FilesText.Concat(FilesMidi).ToArray();
             }
             catch (Exception ex)
             {
