@@ -27,7 +27,7 @@ namespace WebApplication1.Authentication
         /// Check whether the token expires yet. Timezone: UTC
         /// </summary>
         /// <returns></returns>
-        public bool isTokenExpired()
+        public bool IsTokenExpired()
         {
             return ExpireAt <= DateGenerator.ToUnixTimeStamp(DateTime.UtcNow);
         }

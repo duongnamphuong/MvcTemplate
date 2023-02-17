@@ -62,7 +62,7 @@ namespace WebApplication1.Authentication
                     payloadIdentity = jwtUtil.GetPayload(token);
             }
             catch (Exception) { }
-            bool isAuthorized = (token != null && jwtUtil.IsValid(token) && payloadIdentity != null && !payloadIdentity.isTokenExpired());
+            bool isAuthorized = (token != null && jwtUtil.IsValid(token) && payloadIdentity != null && !payloadIdentity.IsTokenExpired());
             if (isAuthorized && extendToken)
             {
                 ExtendTokenIssued(payloadIdentity.Username, token);
