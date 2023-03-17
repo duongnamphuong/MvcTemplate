@@ -74,29 +74,34 @@ nav {
 }
 /* Highcharts - end */
 
-/* hold/release to show/hide password - start */
+/* toggle to show/hide password - start */
 #toggle-group {
   position: relative;
 
-  #toggle-trigger {
-    top: 6px;
-
-    &:not(:active) {
-      background-image: url('/content/vector-images/eye-filled.svg');
+  #toggle-hidden-checkbox {
+    ~ #toggle-trigger {
+      top: 6px;
+      background-repeat: no-repeat;
+      background-position: left;
+      padding-left: 18px;
+      border-width: inherit;
+      background-color: transparent;
+      position: absolute;
+      right: 10px;
+      z-index: 9999;
     }
+  }
 
-    &:active {
+  #toggle-hidden-checkbox:checked {
+    ~ #toggle-trigger {
       background-image: url('/content/vector-images/eye-ban-filled.svg');
     }
+  }
 
-    background-repeat: no-repeat;
-    background-position: left;
-    padding-left: 18px;
-    border-width: inherit;
-    background-color: transparent;
-    position: absolute;
-    right: 10px;
-    z-index: 9999;
+  #toggle-hidden-checkbox:not(:checked) {
+    ~ #toggle-trigger {
+      background-image: url('/content/vector-images/eye-filled.svg');
+    }
   }
 }
-/* hold/release to show/hide password - end */
+/* toggle to show/hide password - end */
