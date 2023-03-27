@@ -18,6 +18,7 @@ namespace AuthorizeDal
         public Account()
         {
             this.TokenIssueds = new HashSet<TokenIssued>();
+            this.Clipboards = new HashSet<Clipboard>();
         }
     
         public long Id { get; set; }
@@ -31,5 +32,7 @@ namespace AuthorizeDal
         public virtual HashType HashType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TokenIssued> TokenIssueds { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Clipboard> Clipboards { get; set; }
     }
 }

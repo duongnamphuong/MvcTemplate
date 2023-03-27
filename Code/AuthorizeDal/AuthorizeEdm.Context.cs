@@ -28,5 +28,6 @@ namespace AuthorizeDal
         public virtual DbSet<Account> Accounts { get; set; }
         public virtual DbSet<HashType> HashTypes { get; set; }
         public virtual DbSet<TokenIssued> TokenIssueds { get; set; }
+        public virtual DbSet<Clipboard> Clipboards { get; set; }
     }
 }

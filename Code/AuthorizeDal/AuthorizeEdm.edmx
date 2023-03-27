@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AuthorizeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AuthorizeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Account">
           <Key>
             <PropertyRef Name="Id" />
@@ -16,6 +16,14 @@
           <Property Name="PasswordHashBase64" Type="nvarchar" MaxLength="255" Nullable="false" />
           <Property Name="IsTwoFactor" Type="bit" Nullable="false" />
           <Property Name="TwoFactorSecretBase32" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Clipboard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountId" Type="bigint" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="HashType">
           <Key>
@@ -46,6 +54,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Clipboard_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="1" />
+          <End Role="Clipboard" Type="Self.Clipboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clipboard">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Token_Account">
           <End Role="Account" Type="Self.Account" Multiplicity="1" />
           <End Role="TokenIssued" Type="Self.TokenIssued" Multiplicity="*" />
@@ -60,11 +80,16 @@
         </Association>
         <EntityContainer Name="AuthorizeModelStoreContainer">
           <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clipboard" EntityType="Self.Clipboard" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="HashType" EntityType="Self.HashType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TokenIssued" EntityType="Self.TokenIssued" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Account_HashType" Association="Self.FK_Account_HashType">
             <End Role="HashType" EntitySet="HashType" />
             <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clipboard_Account" Association="Self.FK_Clipboard_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Clipboard" EntitySet="Clipboard" />
           </AssociationSet>
           <AssociationSet Name="FK_Token_Account" Association="Self.FK_Token_Account">
             <End Role="Account" EntitySet="Account" />
@@ -89,6 +114,7 @@
           <Property Name="TwoFactorSecretBase32" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="HashType" Relationship="Self.FK_Account_HashType" FromRole="Account" ToRole="HashType" />
           <NavigationProperty Name="TokenIssueds" Relationship="Self.FK_Token_Account" FromRole="Account" ToRole="TokenIssued" />
+          <NavigationProperty Name="Clipboards" Relationship="AuthorizeModel.FK_Clipboard_Account" FromRole="Account" ToRole="Clipboard" />
         </EntityType>
         <EntityType Name="HashType">
           <Key>
@@ -145,7 +171,33 @@
             <End Role="Account" EntitySet="Accounts" />
             <End Role="TokenIssued" EntitySet="TokenIssueds" />
           </AssociationSet>
+          <EntitySet Name="Clipboards" EntityType="AuthorizeModel.Clipboard" />
+          <AssociationSet Name="FK_Clipboard_Account" Association="AuthorizeModel.FK_Clipboard_Account">
+            <End Role="Account" EntitySet="Accounts" />
+            <End Role="Clipboard" EntitySet="Clipboards" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Clipboard">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountId" Type="Int64" Nullable="false" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Account" Relationship="AuthorizeModel.FK_Clipboard_Account" FromRole="Clipboard" ToRole="Account" />
+        </EntityType>
+        <Association Name="FK_Clipboard_Account">
+          <End Type="AuthorizeModel.Account" Role="Account" Multiplicity="1" />
+          <End Type="AuthorizeModel.Clipboard" Role="Clipboard" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Clipboard">
+              <PropertyRef Name="AccountId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -180,6 +232,15 @@
                 <ScalarProperty Name="Val" ColumnName="Val" />
                 <ScalarProperty Name="IssuedAtUtc" ColumnName="IssuedAtUtc" />
                 <ScalarProperty Name="ExpireAtUtc" ColumnName="ExpireAtUtc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clipboards">
+            <EntityTypeMapping TypeName="AuthorizeModel.Clipboard">
+              <MappingFragment StoreEntitySet="Clipboard">
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="AccountId" ColumnName="AccountId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
