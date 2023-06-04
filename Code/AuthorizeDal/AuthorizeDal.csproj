@@ -67,6 +67,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AuthorizeEdm.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Clipboard.cs">
+      <DependentUpon>AuthorizeEdm.tt</DependentUpon>
+    </Compile>
     <Compile Include="HashType.cs">
       <DependentUpon>AuthorizeEdm.tt</DependentUpon>
     </Compile>
