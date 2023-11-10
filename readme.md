@@ -56,6 +56,15 @@ You can use this as a template for other web application.
 
 Generated files **Site.css** and **Site.css.map** are not include in Git repo, but their existence is still defined in project (such as **WebApplication1.csproj** and **BundleConfig.cs**). We need that setting so that those files are deployed in server. Those two are ignored by **.gitignore**. Please don't re-add them while keeping using SCSS.
 
+# Other libraries
+The file **wget get files.bat** is used to download some files (JavaScripts, CSS,...) from third parties. Executing this file once is enough.
+
+You need **wget** library installed to execute that file. In case you don't want to install wget, you can download those files mentioned in the batch and paste them in directories mentioned in each wget command.
+
+Libraries mentioned in that file:
+* Highcharts (https://www.highcharts.com/)
+* Opentip (https://www.opentip.org/)
+
 # Memurai
 
 This is a alternative Redis for Windows. Its command syntax is almost the same as Redis'.
