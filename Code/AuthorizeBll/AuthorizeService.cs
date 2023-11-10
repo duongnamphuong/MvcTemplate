@@ -132,7 +132,7 @@ namespace AuthorizeBll
             }
             catch (Exception ex)
             {
-                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Cannot register user", ex);
+                Log4netLogger.Fatal(MethodBase.GetCurrentMethod().DeclaringType, "Cannot register user", ex);
                 return false;
             }
             return true;
@@ -149,7 +149,7 @@ namespace AuthorizeBll
             }
             catch (Exception ex)
             {
-                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Cannot fetch hash types", ex);
+                Log4netLogger.Fatal(MethodBase.GetCurrentMethod().DeclaringType, "Cannot fetch hash types", ex);
                 return null;
             }
         }
@@ -242,7 +242,7 @@ namespace AuthorizeBll
             }
             catch (Exception ex)
             {
-                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Cannot login", ex);
+                Log4netLogger.Fatal(MethodBase.GetCurrentMethod().DeclaringType, "Cannot login", ex);
                 isOk = false;
             }
             return isOk;
@@ -290,7 +290,7 @@ namespace AuthorizeBll
             }
             catch (Exception ex)
             {
-                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Error during adding TokenIssued", ex);
+                Log4netLogger.Fatal(MethodBase.GetCurrentMethod().DeclaringType, "Error during adding TokenIssued", ex);
             }
         }
 
@@ -310,7 +310,7 @@ namespace AuthorizeBll
             }
             catch (Exception ex)
             {
-                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Error during extending TokenIssued", ex);
+                Log4netLogger.Fatal(MethodBase.GetCurrentMethod().DeclaringType, "Error during extending TokenIssued", ex);
             }
         }
     }

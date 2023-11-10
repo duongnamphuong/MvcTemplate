@@ -15,14 +15,14 @@ namespace Schedule.QuartzJobs
     {
         public void Execute(IJobExecutionContext context)
         {
-            Log4netLogger.Info(MethodBase.GetCurrentMethod().DeclaringType, $"Quartz: {nameof(TokenCleaningJob)} was executed at {DateTime.UtcNow.ToString()} UTC");
+            Log4netLogger.Info(MethodBase.GetCurrentMethod().DeclaringType, $"Quartz: {nameof(TokenCleaningJob)} was executed at {DateTime.UtcNow} UTC");
             try
             {
                 AuthorizeService.CleanExpiredTokens();
             }
             catch (Exception ex)
             {
-                Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "cannot cleanup tokens.", ex);
+                Log4netLogger.Fatal(MethodBase.GetCurrentMethod().DeclaringType, "cannot cleanup tokens.", ex);
             }
         }
     }
