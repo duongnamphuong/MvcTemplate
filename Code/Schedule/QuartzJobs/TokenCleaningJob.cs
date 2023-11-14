@@ -21,7 +21,7 @@ namespace Schedule.QuartzJobs
             }
             catch (Exception ex)
             {
-                Log4netLogger.Fatal(MethodBase.GetCurrentMethod().DeclaringType, "cannot cleanup tokens.", ex);
+                Log4netLogger.Fatal(MethodBase.GetCurrentMethod().DeclaringType, "Cannot cleanup tokens.", ex);
             }
         }
     }

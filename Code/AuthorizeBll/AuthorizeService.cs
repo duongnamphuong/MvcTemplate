@@ -262,6 +262,7 @@ namespace AuthorizeBll
             catch (Exception ex)
             {
                 Log4netLogger.Error(MethodBase.GetCurrentMethod().DeclaringType, "Error during token cleanup.", ex);
+                throw ex;
             }
         }
 
