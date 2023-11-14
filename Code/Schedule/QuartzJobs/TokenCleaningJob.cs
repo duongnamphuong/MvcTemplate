@@ -15,7 +15,6 @@ namespace Schedule.QuartzJobs
     {
         public void Execute(IJobExecutionContext context)
         {
-            Log4netLogger.Info(MethodBase.GetCurrentMethod().DeclaringType, $"Quartz: {nameof(TokenCleaningJob)} was executed at {DateTime.UtcNow} UTC");
             try
             {
                 AuthorizeService.CleanExpiredTokens();
