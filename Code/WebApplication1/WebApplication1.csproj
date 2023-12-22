@@ -213,6 +213,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\files\file0.txt" />
+    <Content Include="App_Data\files\file1.txt" />
+    <Content Include="App_Data\files\file2.txt" />
+    <Content Include="App_Data\files\file3.txt" />
+    <Content Include="App_Data\files\「仕事はじめ」Kiki%27s_Delivery_Service.mid" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\all.css" />
     <Content Include="Content\all.min.css" />
